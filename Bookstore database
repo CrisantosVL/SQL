@@ -1,0 +1,28 @@
+-- Create a bookstore database.
+
+CREATE TABLE bookstore (id INTEGER PRIMARY KEY, name TEXT,  quantity INTEGER, price INTEGER, section TEXT);
+
+INSERT INTO bookstore VALUES (1, "Romance", 30, 21, "Adult");
+INSERT INTO bookstore VALUES (2, "YA", 25, 20, "Teen");
+INSERT INTO bookstore VALUES (3, "Sci-Fi", 12, 21, "Adult");
+INSERT INTO bookstore VALUES (4, "Mystery", 17, 20, "Adult");
+INSERT INTO bookstore VALUES (5, "Horror", 27, 21, "Adult");
+INSERT INTO bookstore VALUES (6, "Thriller", 15, 19, "Adult");
+INSERT INTO bookstore VALUES (7, "Historical", 10, 20, "Adult");
+INSERT INTO bookstore VALUES (8, "Memoir", 13, 20, "Adult");
+INSERT INTO bookstore VALUES (9, "History", 35, 20, "Adult");
+INSERT INTO bookstore VALUES (10, "Poetry", 7, 20, "Adult");
+INSERT INTO bookstore VALUES (11, "Autobiography", 62, 19, "Adult");
+INSERT INTO bookstore VALUES (12, "Humor", 9, 15, "Childrens");
+INSERT INTO bookstore VALUES (13, "Travel", 50, 15, "Adult");
+INSERT INTO bookstore VALUES (14, "Suspense", 11, 15, "Adult");
+INSERT INTO bookstore VALUES (15, "Picture Book",26, 15, "Childrens");
+
+--Display the database order by price.
+SELECT * FROM bookstore ORDER BY price;
+
+--Display the average price of books.
+SELECT AVG(price) FROM bookstore;
+
+--Total of books the book store has in stock.
+SELECT SUM(quantity) FROM bookstore;
