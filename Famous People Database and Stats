@@ -1,0 +1,97 @@
+--Create a database about famous people
+
+CREATE TABLE Famous_People
+(id INTEGER PRIMARY KEY,
+first_name TEXT,
+last_name TEXT,
+birthdate TEXT,
+genre TEXT);
+
+INSERT INTO Famous_People (first_name, last_Name, birthdate, genre)
+VALUES ("Taylor", "Swift", "1989-12-13", "Musician");
+INSERT INTO Famous_People (first_name, last_Name, birthdate, genre)
+VALUES ("Ed", "Sheeran", "1991-02-17", "Musician");
+INSERT INTO Famous_People (first_name, last_Name, birthdate, genre)
+VALUES ("Robert", "Downey Jr", "1965-04-04", "Actor");
+INSERT INTO Famous_People (first_name, last_Name, birthdate, genre)
+VALUES ("Gigi", "Hadid", "1995-04-23", "Model");
+INSERT INTO Famous_People (first_name, last_Name,birthdate,  genre)
+VALUES ("Bella", "Hadid", "1996-10-09", "Model");
+INSERT INTO Famous_People (first_name, last_Name, birthdate,  genre)
+VALUES ("Pedro", "Pascal", "1975-04-02", "Actor");
+INSERT INTO Famous_People (first_name, last_Name, birthdate,  genre)
+VALUES ("Chris", "Evans", "1981-05-13", "Actor");
+INSERT INTO Famous_People (first_name, last_Name, birthdate, genre)
+VALUES ("Shakira", "Null", "1977-02-02", "Musician");
+INSERT INTO Famous_people (first_name, last_name, birthdate, genre)
+VALUES ("Zendaya", "Null", "1996-09-01", "Actor");
+
+CREATE TABLE Known_For (id INTEGER PRIMARY KEY,
+title TEXT);
+
+INSERT INTO Known_For (id, title)
+VALUES (1, "Shake It Off");
+INSERT INTO Known_For (id, title)
+VALUES (2, "Thinking Out Loud");
+INSERT INTO Known_For (id, title)
+VALUES (3, "Iron Man");
+INSERT INTO Known_For (id, title)
+VALUES (4, "Victoria's Secret Angel");
+INSERT INTO Known_For (id, title)
+VALUES (5, "Victoria's Secret Angel");
+INSERT INTO Known_For (id, title)
+VALUES (6, "The Last Of Us");
+INSERT INTO Known_For (id, title)
+VALUES (7, "Captain America");
+INSERT INTO Known_For (id, title)
+VALUES (8, "Shakira:BZRP Music sessions, Vol 53");
+INSERT INTO Known_For (id, title)
+VALUES (9, "Euphoria");
+
+CREATE TABLE Relationship_Status (id INTEGER PRIMARY KEY,
+status TEXT);
+
+INSERT INTO Relationship_Status (id, status)
+VALUES (1, "Dating");
+INSERT INTO Relationship_Status (id, status)
+VALUES (2, "Married");
+INSERT INTO Relationship_Status (id, status)
+VALUES (3, "Married");
+INSERT INTO Relationship_Status (id, status)
+VALUES (4, "Dating");
+INSERT INTO Relationship_Status (id, status)
+VALUES (5, "Dating");
+INSERT INTO Relationship_Status (id, status)
+VALUES (6, "Single");
+INSERT INTO Relationship_Status (id, status)
+VALUES (7, "Dating");
+INSERT INTO Relationship_Status (id, status)
+VALUES (8, "Dating");
+INSERT INTO Relationship_Status (id, status)
+VALUES (9, "Dating");
+
+--Display all information.
+SELECT * FROM Famous_People;
+
+--What genre are they in?
+SELECT first_name, last_name, genre
+FROM Famous_People
+ORDER BY genre ASC;
+
+--Who are the oldest on the list?
+SELECT first_name, last_name, birthdate
+FROM Famous_People
+ORDER BY birthdate ASC;
+
+--What are their most popular works?
+SELECT first_name, last_name, title
+FROM Famous_People
+JOIN Known_For
+ON Famous_People.id = Known_For.id;
+
+--Are any in relationships?
+SELECT first_name, last_name, status
+FROM Famous_People
+JOIN Relationship_status
+ON Famous_People.id = Relationship_Status.id
+ORDER BY status DESC;
