@@ -25,7 +25,8 @@ AND orderID <> 'Order ID'
 #4. Which product was the cheapest one sold in January, and what was the price? 
 SELECT DISTINCT product, MIN(price) AS cheapest 
 FROM BIT_DB.JanSales 
-ORDER BY product, price LIMIT 1
+GROUP BY product, price
+ORDER BY price LIMIT 1
 
 #5. What is the total revenue for each product sold in January?
 SELECT product, SUM(quantity)*price AS revenue
